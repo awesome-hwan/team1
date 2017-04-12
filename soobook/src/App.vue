@@ -2,7 +2,7 @@
   <div id="app">
   <div class="wrapper">
     <header class="header">
-      <h1 class="logo"><a href="../index.html"><img src="./assets/images/mainlogo.png" alt="SOO BOOK" width="200px" height="40px"></a></h1>
+      <h1 class="logo"><a href="./components/Home"><img src="./assets/images/mainlogo.png" alt="SOO BOOK" width="200px" height="40px"></a></h1>
       <div class="login">
         <form>
             <div class="user-login">
@@ -67,8 +67,10 @@ export default {
     this.Login(user_data);
     },
     Login(user_data){
+      
       console.log(user_data);
-        // jQuery ajax를 이용하여 SOOBOOK API 가져오기  
+      // debugger;
+        // ajax를 이용하여 SOOBOOK API 가져오기  
         $.ajax({
             url: "https://soobook.devlim.net/api/user/login/",
             type: 'POST',
@@ -76,13 +78,13 @@ export default {
             data: user_data
         })
         .done(function(response) {
-            console.log(response);
+            console.log('done', response);
             var tokenKey = response.key;
             // this.setCookie('SoobookToken', tokenKey, 90);
             // location.href = "../my-page.html";
         })
-        .fail(function(response) {
-            console.log(response);
+        .fail(function(error) {
+            console.log('---------', error.message);
         });
     },
     
