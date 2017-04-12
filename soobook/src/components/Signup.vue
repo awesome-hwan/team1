@@ -7,7 +7,7 @@
             <input type="text" class="userinfo user-pw">
             <label for="">닉네임</label>
             <input type="text" class="userinfo user-nickname">
-            <button type="submit" class="sign-up-btn" @click="clickedSignUpButton">회원가입</button>
+            <button type="button" class="sign-up-btn" @click="clickedSignUpButton">회원가입</button>
         </form>
         
     </div>
