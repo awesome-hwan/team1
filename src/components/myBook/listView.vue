@@ -154,7 +154,7 @@ export default {
   }
 }
 </script>
-<style scope>
+<style>
 
 @media screen and (min-width: 960px) {
 

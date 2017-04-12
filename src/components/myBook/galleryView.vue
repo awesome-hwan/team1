@@ -205,7 +205,7 @@ export default {
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  margin: 50px 30px;
+  margin: 50px 20px;
   position: relative;
   width: 202px;
 }
