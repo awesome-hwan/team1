@@ -18,7 +18,17 @@ export const routes = [
     default: Home,
     header: Header,
     footer: Footer
-   }
+  },
+  beforeEnter: (to, from, next)=> {
+    let key = window.localStorage.getItem('key');
+      // to.matched[0].instances.header = new Header;
+    if(key) {
+      console.log(key);
+      next({path: '/mybook'});
+    } else {
+      next();
+    }
+  }
 },
   {path: '/signin',
   components:{

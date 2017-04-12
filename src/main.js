@@ -8,8 +8,12 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
-  routes
+  routes,
 });
+
+// router.beforeEach((to, from, next) => {
+//
+// });
 
 new Vue({
   el: '#app',

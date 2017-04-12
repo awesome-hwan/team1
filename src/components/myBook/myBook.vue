@@ -29,33 +29,56 @@
       <transition name = "slide" mode="out-in">
       <router-view></router-view>
     </transition>
-      <h2>페이지네이션</h2>
+    <div class="pagination">
+   <span v-for="n in 10">{{ n }}<router-link to="/mybook?page=3" tag="a"></router-link></span>
+   </div>
     </div>
 
   </div>
 </template>
 <script>
 export default {
-  name: "",
+  name: "myBook",
   data: function data() {
     return {
 
     }
   },
-//   mounted:
-//   function() {
-// jQuery(window).scroll(function() {
-// var position = jQuery(window).scrollTop();
-// if(position >= 100) {
-// jQuery('.utility').addClass('fixed');
-// } else {
-// jQuery('.utility').removeClass('fixed');
-// }
-// })
-// }
+  mounted () {
+    var util = jQuery('.utility');
+    var utilOffsetTop = Math.ceil(util.offset().top);
+    jQuery(window).scroll(function() {
+      var position = jQuery(this).scrollTop();
+      var hasFixed = util.hasClass('fixed');
+      if(position >= utilOffsetTop && !hasFixed) {
+        util.addClass('fixed');
+      }
+      if (position < utilOffsetTop && hasFixed) {
+        util.removeClass('fixed');
+      }
+    });
+  }
 }
 </script>
 <style>
+
+.pagination{
+  font-size: 1.3rem;
+  text-align: center;
+  padding: 0 0 40px 0;
+}
+.pagination span{
+  margin: 5px;
+}
+.pagination a{
+  color:#464345;
+}
+.pagination span:hover{
+  color:#64b9c8;
+  cursor: pointer;
+}
+
+
 @keyframes slide-in{
   from{
     transform: translateY(500px);

@@ -28,7 +28,7 @@
 </template>
 <script>
 export default {
-  // name: "listView",
+  name: "listView",
   data: function() {
     return {
       items: [
@@ -151,7 +151,34 @@ export default {
        }
      ]
     }
-  }
+  },
+  methods: {
+    textCut(txt ,len) {
+      if (len == "" || len == null) {
+             len = 15;
+         }
+        if (txt.length > len) {
+            txt = txt.substr(0, len) + '...';
+        }
+        return txt;
+      }
+  },
+   mounted() {
+     var bookReviews = document.querySelectorAll('.bookReview');
+     var bookTitles = document.querySelectorAll('.bookTitle');
+     // console.log(bookReviews);
+     for (var i = 0; i < bookReviews.length; i++) {
+       // console.log(bookReviews[i].textContent);
+       var bookReviewCut = this.textCut(bookReviews[i].textContent, 50);
+       // console.log(bookReviewCut);
+       bookReviews[i].textContent = bookReviewCut;
+     }
+
+     for (var i = 0; i < bookTitles.length; i++) {
+       var bookTitleCut = this.textCut(bookTitles[i].textContent);
+       bookTitles[i].textContent = bookTitleCut;
+     }
+    }
 }
 </script>
 <style>
@@ -171,7 +198,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 40px;
+  margin: 40px 20px;
+
+}
+.bookList:hover{
+  transform: translateY(-5px);
+  transition: 0.5s ease-in;
 }
 .bookList{
   width: 45%;

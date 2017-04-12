@@ -211,7 +211,7 @@ export default {
 }
 .booklist1:hover {
   transform: translateY(-5px);
-  transition: 0.5s ease-in
+  transition: 0.5s ease-in;
 }
 .book-coverlist{
   margin:0;
