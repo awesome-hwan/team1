@@ -149,10 +149,37 @@ export default {
        }
      ]
     }
-  }
+  },
+  methods: {
+    textCut(txt ,len) {
+      if (len == "" || len == null) {
+             len = 8;
+         }
+        if (txt.length > len) {
+            txt = txt.substr(0, len) + '...';
+        }
+        return txt;
+      }
+  },
+   mounted() {
+     var bookReviews = document.querySelectorAll('.bookReview');
+     var bookTitles = document.querySelectorAll('.bookTitle');
+     // console.log(bookReviews);
+     for (var i = 0; i < bookReviews.length; i++) {
+       // console.log(bookReviews[i].textContent);
+       var bookReviewCut = this.textCut(bookReviews[i].textContent, 50);
+       // console.log(bookReviewCut);
+       bookReviews[i].textContent = bookReviewCut;
+     }
+
+     for (var i = 0; i < bookTitles.length; i++) {
+       var bookTitleCut = this.textCut(bookTitles[i].textContent);
+       bookTitles[i].textContent = bookTitleCut;
+     }
+    }
 }
 </script>
-<style>
 
+<style>
 
 </style>
