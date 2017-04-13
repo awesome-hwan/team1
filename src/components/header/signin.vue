@@ -9,11 +9,7 @@
           <input type="email" id="user-id" placeholder="이메일 아이디">
           <label for="user-pw" class="hidden">패스워드</label>
           <input type="password" id="user-pw" placeholder="비밀번호">
-<<<<<<< HEAD
           <router-link to="/mybook"><button type="button" class="signin-btn" @click="clickedLoginButton">로그인</button></router-link>
-=======
-          <router-link to="/mybook"><button type="submit" class="signin-btn" @click="clickedLoginButton">로그인</button></router-link>
->>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
         </form>
         <div class="signin-info">
           <p>아직 아이디가 없으신가요? </p>
@@ -32,7 +28,6 @@ export default {
   name: 'app',
   data () {
     return {
-<<<<<<< HEAD
           // setCookie(name, value, expireDays) {
           //   var exdate=new Date();
           //   exdate.setDate(exdate.getDate() + expireDays);
@@ -51,26 +46,6 @@ export default {
           // 		}
           // 	}
           // }
-=======
-          setCookie(name, value, expireDays) {
-            var exdate=new Date();
-            exdate.setDate(exdate.getDate() + expireDays);
-            var c_value=escape(value) + ((expireDays==null) ? "" : "; expires="+exdate.toUTCString());
-            document.cookie=name + "=" + c_value;
-          },
-          getCookie(c_name) {
-          	var i,x,y,ARRcookies=document.cookie.split(";");
-          	for (i=0;i<ARRcookies.length;i++) {
-          	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-          	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-          	  x=x.replace(/^\s+|\s+$/g,"");
-
-          	  if (x==c_name) {
-          			return unescape(y);
-          		}
-          	}
-          }
->>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
     }
   },
   methods: {
