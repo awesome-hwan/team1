@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+<<<<<<< HEAD
 import Vuex from 'Vuex'
+=======
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 import {routes} from './routes'
 import App from './App.vue'
 
 Vue.use(VueRouter)
+<<<<<<< HEAD
 // Vue.use(Vuex)
 
 // const store = new Vuex.Store({
@@ -42,6 +46,8 @@ Vue.use(VueRouter)
 //     //   state.selected_book = state.books;
 //   }
 // });
+=======
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 
 
 const router = new VueRouter({
@@ -49,6 +55,7 @@ const router = new VueRouter({
   routes,
 });
 
+<<<<<<< HEAD
 new Vue({
   el: '#app',
   router,
@@ -59,3 +66,15 @@ new Vue({
 //   state,
 //   mutations
 // })
+=======
+// router.beforeEach((to, from, next) => {
+//
+// });
+
+new Vue({
+  el: '#app',
+  router,
+  // jquery,
+  render: h => h(App)
+})
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35

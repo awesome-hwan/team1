@@ -1,6 +1,7 @@
 <template>
   <div class="bg-wrap">
     <div class="wrap-1200">
+<<<<<<< HEAD
     <div class="selected_area">
       <div class="books-info">
         <div>
@@ -63,6 +64,15 @@
         </ul>
     </div>
   </div>
+=======
+
+      북디테일 내용 들어갑니다.
+
+    </div>
+
+
+
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 </div>
 
 </template>
@@ -71,6 +81,7 @@ export default {
   name: "",
   data: function data() {
     return {
+<<<<<<< HEAD
       items: [
         {
          "book":{
@@ -118,6 +129,11 @@ export default {
 }
 
 
+=======
+
+    }
+  }
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 }
 </script>
 <style>

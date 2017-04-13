@@ -41,7 +41,12 @@ export default {
   name: "myBook",
   data: function data() {
     return {
+<<<<<<< HEAD
     }  
+=======
+
+    }
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
   },
   mounted () {
     var util = jQuery('.utility');

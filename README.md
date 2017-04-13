@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SOOBOOK
 ## 수북히 쌓인 내 책장의 책을 시각적으로 정리하기 위한 개인책장 프로젝트!!
 
@@ -54,3 +55,23 @@
 ##### 3. 개별 책에 할당된 모달창에서 각 책의 내용과 연결되는 리뷰와 책속글귀를 연결하는 방법
 - vue.js 내에서 데이터 모델을 설계할때부터 책 타이틀,저자, 리뷰, 책속글귀가 한개의 객체에 들어가도록 설계(데이터모델의 중요성!!)
 - 클릭시 selected된 북에 해당 정보가 들어가도록 함
+=======
+# soobok-vue-router
+
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+```
+
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35

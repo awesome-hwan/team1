@@ -430,8 +430,11 @@ color:#8a8488;
     opacity: 0;
   }
   }*/
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 /*유틸리티바*/
 .utility{
   background: #fff;
@@ -469,7 +472,33 @@ color:#8a8488;
     margin: 5px;
     cursor: pointer;
 }
+<<<<<<< HEAD
 
+=======
+/*.view-option{
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 70px;
+  margin-bottom: 10px;
+}
+.view-option button {
+  background: transparent;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
+}
+select{
+  width: 200px;
+  margin-right: 10px;
+  padding-left: 10px;
+  border-radius: 3px;
+}*/
+/*select option{
+  padding:5px;
+}*/
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 .listbook-search{
   margin-right: 7px;
 }
@@ -503,6 +532,7 @@ color:#8a8488;
   background: #64b9c8;
 }
 
+<<<<<<< HEAD
 /*별점*/
 .rating {
 		  unicode-bidi: bidi-override;
@@ -627,6 +657,8 @@ color:#8a8488;
 }
 
 
+=======
+>>>>>>> fe309722181fba95de06aae16e3ba1fa0472be35
 
   footer{
     position: fixed;
