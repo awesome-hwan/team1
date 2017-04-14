@@ -19,7 +19,7 @@
                 </div>
             </form>
             <div class="create-account">
-              <a href="./signup" class="sign-up-anchor">회원가입</a>
+              <router-link to="/signup" class="sign-up-anchor">회원가입</router-link>
             </div>
 
           </div>
@@ -57,30 +57,42 @@ export default {
             })
             .done(function(response) {
                 console.log('done', response);
+
+                // tokenKey 저장
                 var tokenKey = response.key;
-                // setCookie('SoobookToken', tokenKey, 90);
+
+                // nickname setting
+                // var user_id = response.user.username;
+                var user_nickname = response.user.nickname;
+                console.log(user_nickname);
+                
+                // Cookie setting
+                setCookie('SoobookToken', tokenKey, 90);
+                
+                function setCookie(name, value, expireDays) {
+                  var exdate=new Date();
+                  exdate.setDate(exdate.getDate() + expireDays);
+                  var c_value=escape(value) + ((expireDays==null) ? "" : "; expires="+exdate.toUTCString());
+                  document.cookie=name + "=" + c_value;
+                }
+                function getCookie(c_name) {
+                	var i,x,y,ARRcookies=document.cookie.split(";");
+                	for (i=0;i<ARRcookies.length;i++) {
+                	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+                	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+                	  x=x.replace(/^\s+|\s+$/g,""); 
+                	  if (x==c_name) {
+                			return unescape(y);
+                		}
+                	}
+                }
+
+                // location.href = "/mypage"
             })
             .fail(function(error) {
                 console.log('fail', error.message);
             });
         },
-        // setCookie(name, value, expireDays) {
-        //   var exdate=new Date();
-        //   exdate.setDate(exdate.getDate() + expireDays);
-        //   var c_value=escape(value) + ((expireDays==null) ? "" : "; expires="+exdate.toUTCString());
-        //   document.cookie=name + "=" + c_value;
-        // },
-        // getCookie(c_name) {
-        // 	var i,x,y,ARRcookies=document.cookie.split(";");
-        // 	for (i=0;i<ARRcookies.length;i++) {
-        // 	  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-        // 	  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-        // 	  x=x.replace(/^\s+|\s+$/g,""); 
-        // 	  if (x==c_name) {
-        // 			return unescape(y);
-        // 		}
-        // 	}
-        // }
     }
 }
 </script>

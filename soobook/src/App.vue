@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-  <div class="wrapper">
-    <!-- Header -->
-    <app-header></app-header>
-
-    <!-- Router -->
-    <router-view></router-view>
-
-    <!-- Footer -->
-    <footer>
-      <p class="footer-comment">©copyright soobook fastcampus</p>
-    </footer>
-  </div>
+    <div class="wrapper">
+      <!-- Header -->
+      <app-header></app-header>
+    
+      <!-- Router -->
+      <router-view></router-view>
+    
+      <!-- Footer -->
+      <footer>
+        <p class="footer-comment">©copyright soobook fastcampus</p>
+      </footer>
+    </div>
   </div>
 </template>
 

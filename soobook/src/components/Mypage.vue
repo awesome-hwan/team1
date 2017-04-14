@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="visual">
-            <h2 class="book-find-area">책을 검색 합니다</h2>
-            <a class="nav-book" href="./Search">검색</a>
+            <h2 class="book-find-area">{{msg}}</h2>
+            <router-link to="/search" class="nav-book">{{boxMsg}}</router-link> 
         </div>
 
         <div class="view-option-control">
@@ -114,7 +114,9 @@
         data(my_bookshelf) {
             return {
                 is_visible: true,
-                books: my_bookshelf
+                books: my_bookshelf,
+                msg: "책을 검색 합니다.",
+                boxMsg: "검색"
             }
         },
         methods: {
