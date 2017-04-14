@@ -2,11 +2,11 @@
   <div id="app">
     <div class="wrapper">
       <!-- Header -->
-      <app-header></app-header>
-    
+      <router-view name="header"></router-view>
+
       <!-- Router -->
       <router-view></router-view>
-    
+
       <!-- Footer -->
       <footer>
         <p class="footer-comment">©copyright soobook fastcampus</p>
@@ -16,12 +16,11 @@
 </template>
 
 <script>
-import Header from './components/header/Header.vue';
 export default {
   name: 'app',
-  components:{
-    'app-header': Header
-  },
+  // components:{
+  //   'app-header': Header
+  // },
   data () {
     return {
 

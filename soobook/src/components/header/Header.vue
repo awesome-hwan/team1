@@ -42,13 +42,13 @@ export default {
               username: username,
               password: password,
           };
-        // 버튼 클릭시 로그인 함수 실행
+        // Implemented Login function, after click button
         this.Login(user_data);
         },
         Login(user_data){
             console.log(user_data);
             // debugger;
-            // ajax를 이용하여 SOOBOOK API 가져오기  
+            // Bring the soobook api using ajax 
             $.ajax({
                 url: "https://soobook.devlim.net/api/user/login/",
                 type: 'POST',
@@ -58,7 +58,7 @@ export default {
             .done(function(response) {
                 console.log('done', response);
 
-                // tokenKey 저장
+                // save tokenKey
                 var tokenKey = response.key;
 
                 // nickname setting
@@ -86,8 +86,12 @@ export default {
                 		}
                 	}
                 }
-
-                // location.href = "/mypage"
+                
+                // save key value & nickname to localStorage
+                localStorage.setItem("key", response.key);
+                localStorage.setItem("user", response.user.nickname);
+                
+                location.href = "/mypage"
             })
             .fail(function(error) {
                 console.log('fail', error.message);

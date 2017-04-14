@@ -46,6 +46,8 @@ export default {
         	})
         	.done(function(response) {
         	  console.log(response);
+              alert('가입이 완료되었습니다.')
+              location.href= "./"
         	})
         	.fail(function(response) {
         	  console.log(response);
