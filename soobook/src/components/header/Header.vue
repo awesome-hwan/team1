@@ -86,7 +86,7 @@ export default {
                 		}
                 	}
                 }
-                
+
                 // save key value & nickname to localStorage
                 localStorage.setItem("key", response.key);
                 localStorage.setItem("user", response.user.nickname);

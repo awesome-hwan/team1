@@ -8,15 +8,15 @@
             <h1>Book Finder</h1>
             <input v-model="search" type="text" class="added__book--input" placeholder="Title or Author">
             <button type="submit" class="added__book--btn" @click="bookSearch">Search</button>
-            <div class="results">
-                <div v-for="post in posts" class="result-list">
+            <ul class="results">
+                <li v-for="post in posts" class="result-list" @click="addBook">
                     <img :src="post.cover_thumbnail" :alt="post.title">
                     <div class="results-info">
-                      <h3 class="title">{{post.title | cropTitle}}</h3>
-                      <p class="author">{{post.author}}</p>
+                        <h3 class="title">{{post.title | cropTitle}}</h3>
+                        <p class="author">{{post.author}}</p>
                     </div>  
-                </div>
-            </div>
+                </li>
+            </ul>
         </main>
     </div>
 </template>
@@ -59,6 +59,24 @@ export default {
                     _this.posts = data.results;
                 },
             });
+        },
+        addBook() {
+            var token = 'Token ' + getCookie('SoobookToken');
+            // localStorage.getItem("key");
+            $.ajax({
+                url: "https://soobook.devlim.net/api/book/mybook/",
+                type: 'POST',
+                dataType: "json",
+                headers: {
+                  Authorization: token
+                }
+            })
+            .done(function(response) {
+                console.log(response)
+            })
+            .fail(function(error) {
+                console.log(error.message)
+            })
         }
     }
 }
