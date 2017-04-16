@@ -99,8 +99,11 @@ export default {
       var data = ev.dataTransfer.getData("drag_target");
       console.log('data: ', data);
       console.log(document.getElementById(data));
-      console.log(ev.target);
-      ev.target.appendChild(document.getElementById(data));
+      console.log('ev.target:',ev.target);
+      var clonebook = document.getElementById(data).cloneNode(true);
+      console.log("clonebook:",clonebook);
+      ev.target.appendChild(clonebook);
+      // ev.target.appendChild(document.getElementById(data));
     }
     //  selectBook(e){
     //     var selectBook = document.querySelectorAll('.resultsBookList');
@@ -141,5 +144,9 @@ export default {
   min-height: 475px;
   margin-top: 30px;
 }
-
+.picked-result div{
+  /*display: inline-block;*/
+  width: 45%;
+  margin: 10px auto;
+}
 </style>
