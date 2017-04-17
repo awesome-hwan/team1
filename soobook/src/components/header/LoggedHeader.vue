@@ -9,8 +9,8 @@
 
           <div class="logged">
             <span class="nickname-area">{{msg}} 님</span>
-            <a href class="log-out" @click="LogOut">로그아웃</a>
-            <!-- <router-link to="/" class="log-out" @click="LogOut">로그아웃</router-link> -->
+            <button type="button" class="log-out" @click="LogOut">로그아웃</button>
+            <!-- <router-link to="/" tag="button" class="log-out" @click="LogOut">로그아웃</router-link> -->
           </div>
         </header>
     </div>
@@ -36,7 +36,8 @@ export default {
             })
             .done(function(response) {
               console.log(response);
-            //   location.href= "./"
+              alert('로그아웃 되었습니다.')
+              location.href= "./"
             })
             .fail(function(response) {
               console.log(response);
