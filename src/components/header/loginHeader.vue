@@ -11,11 +11,7 @@
 <h2 class="hidden">로그인</h2>
 
 <ul >
-<<<<<<< HEAD
 <li class="nickname">  {{msg}} 님</li>
-=======
-<li class="nickname">  소복소복 님</li>
->>>>>>> 2bfa52c100d59d91da77eaa79db7db917b42ad3e
 <li>
   <!-- <router-link to="/"><a href>로그아웃</a></router-link> -->
   <button type="button" class="log-out" @click="LogOut">로그아웃</button>
