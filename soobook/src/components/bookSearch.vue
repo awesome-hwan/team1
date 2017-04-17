@@ -17,16 +17,18 @@
               </div>
             <!--App.vue에 있는  results에서 padding, height 값 지움. -->
           </div>
-          <div class="hiddenArea" style="right: -84%;">
+          <div id="hiddenMenu" class="hiddenArea">
+            <!-- style="right: -84%;"  -->
+            <button type="button" class="hiddenMenuBar" @click="toggleMenu">선택된 책 목록</button>
             <button type="button" class="hiddenMenuButton" @click="lookMenu"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
             <div class="resultsRight">
               <div class="picked-result" id="div1" @drop="drop($event)" @dragover="allowDrop($event)">
-                <!--App.vue에 있는  picked-result에서 높이값 지움.(이 파일 밑에서 높이값 설정) -->
+                <!--App.vue에 있는  picked-result값 다 지움(이 파일 밑에서  설정) -->
 
-                <router-link to="/mybook">
-                  <button type="button" class="booksave-btn">저장</button>
+                <!-- <router-link to="/mybook"> -->
+                  <button type="button" class="booksave-btn" @click="addBooks">저장</button>
                   <!--App.vue에 있는  booksave-btn에서 가운데 정렬하는 값, position 지움. -->
-                </router-link>
+                <!-- </router-link> -->
               </div>
             </div>
           </div>
@@ -80,6 +82,23 @@ export default {
         type: 'GET'
       });
     },
+    addBooks(){
+      var PickedBook = document.querySelector('.picked-result');
+      var resultsBook = PickedBook.querySelectorAll('.resultsBookList');
+      console.log('resultsBook:', resultsBook);
+      for (var i = 0; i <= resultsBook.length; i++) {
+        console.log(resultsBook[i].id);
+        var book_id = resultsBook[i].id;
+        console.log('book_id:',book_id);
+        this.book_id = book_id;
+      };
+      // $.ajax({
+      //   url: "https://soobook.devlim.net/api/book/mybook/",
+      //   dataType: "json",
+      //   type: "POST",
+      //
+      // })
+    },
     allowDrop(ev) {
       ev.preventDefault();
     },
@@ -97,18 +116,26 @@ export default {
       // ev.target.appendChild(document.getElementById(data));
     },
     lookMenu(){
-      var hiddenMenu, togglebtn;
-      hiddenMenu = document.querySelector('.hiddenArea').style;
-      if(hiddenMenu.right === "-84%"){
-        hiddenMenu.right = "-10%";
-        hiddenMenu.animation = "toggle-in 0.7s ease-in-out"
+      var toggleMenu, togglebtn;
+      toggleMenu = document.querySelector('#hiddenMenu');
+      if(toggleMenu.className === "hiddenArea"){
+        toggleMenu.setAttribute('class', 'hiddenAreaMb-active');
         togglebtn = document.querySelector('.fa-angle-double-left');
         togglebtn.outerHTML = '<i class="fa fa-angle-double-right fa-2x" aria-hidden="true"></i>';
       }else{
-        hiddenMenu.right = "-84%";
-        hiddenMenu.animation = "toggle-out 0.7s ease-in-out"
+        toggleMenu.setAttribute('class', 'hiddenArea');
         togglebtn = document.querySelector('.fa-angle-double-right');
         togglebtn.outerHTML = '<i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i>';
+      }
+    },
+    toggleMenu(){
+      var toggleMenu, toggleMenu_active;
+      toggleMenu = document.querySelector('#hiddenMenu');
+      if(toggleMenu.className === "hiddenArea"){
+        toggleMenu.setAttribute('class', 'hiddenArea-active');
+        // toggleMenu.style.animation = "toggle-up 2s ease-in-out"
+      }else{
+        toggleMenu.setAttribute('class', 'hiddenArea');
       }
     }
     //  selectBook(e){
@@ -124,9 +151,12 @@ export default {
 }
 </script>
 <style>
+.wrap-1200{
+  overflow: hidden;
+  min-height: 100vh;
+}
 .searchResults{
-  display: flex;
-  min-height: 600px;
+  /*display: flex;*/
 }
 .results{
   width: 70%;
@@ -135,6 +165,8 @@ export default {
 }
 .resultsRight{
   width: 100%;
+  min-height: 100vh;
+  background: white;
   position: relative;
 }
 .booksave-btn{
@@ -154,16 +186,40 @@ export default {
   text-align: center;
 }
 .picked-result{
-  min-height: 475px;
-  margin-top: 30px;
+  min-height: 100vh;
   width: 90%;
 }
 .hiddenMenuButton{
   display: none;
 }
+.hiddenMenuBar{
+  margin-top: 105px;
+  width: 35px;
+  height: 220px;
+  border-radius: 7px 0 0 7px;
+  color: white;
+  background: #64b9c8;
+  text-align: center;
+}
+#hiddenMenu{
+  display: flex;
+  position: absolute;
+  top:0;
+}
 .hiddenArea{
   width: 30%;
-  display: flex;
+  right: -27.5%;
+  animation: toggle-out 0.7s ease-in-out;
+}
+.hiddenArea-active{
+  width: 30%;
+  right: 0%;
+  animation: toggle-up 2s ease-in-out;
+}
+.hiddenAreaMb-active{
+  width: 80%;
+  right: 0%;
+  animation: toggle-in 0.7s ease-in-out;
 }
 .picked-result div{
   /*display: inline-block;*/
