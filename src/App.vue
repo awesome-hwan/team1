@@ -147,7 +147,7 @@ color: #fff;
   display: inline;
 }
 .logo img{
-color: #fff;
+width:200px;
 margin-top: 12px;
 margin-left: 20px
 }
@@ -157,9 +157,13 @@ float: right;
 margin-right: 7px;
 /*margin: 2rem;*/
 }
-
 .log-in a{
 color:#fff;
+}
+.log-out{
+  background: none;
+  color:#fff;
+  font-size: 1.2rem;
 }
 input{
 width: 14rem;
@@ -430,6 +434,8 @@ color:#8a8488;
     opacity: 0;
   }
   }*/
+
+
 /*유틸리티바*/
 .utility{
   background: #fff;
@@ -467,29 +473,7 @@ color:#8a8488;
     margin: 5px;
     cursor: pointer;
 }
-/*.view-option{
-  display: flex;
-  justify-content: flex-start;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 70px;
-  margin-bottom: 10px;
-}
-.view-option button {
-  background: transparent;
-  border: none;
-  margin: 5px;
-  cursor: pointer;
-}
-select{
-  width: 200px;
-  margin-right: 10px;
-  padding-left: 10px;
-  border-radius: 3px;
-}*/
-/*select option{
-  padding:5px;
-}*/
+
 .listbook-search{
   margin-right: 7px;
 }
@@ -523,7 +507,127 @@ select{
   background: #64b9c8;
 }
 
+/*별점*/
+.rating {
+		  unicode-bidi: bidi-override;
+		  direction: rtl;
+		  text-align: center;
+		}
+		.rating > span {
+		  display: inline-block;
+		  position: relative;
+		  width: 1.1em;
+      font-size: 2rem;
+      color:#f0ce1a;
+      margin: 5px 0;
+		}
+		.rating > span:hover,
+		.rating > span:hover ~ span {
+		  color: transparent;
+		}
+		.rating > span:hover:before,
+		.rating > span:hover ~ span:before {
+		   content: "\2605";
+		   position: absolute;
+		   left: 0;
+		   color: #f0ce1a;
+		}
 
+
+/*책정보 디테일 모달*/
+
+.selected_area{
+  padding:50px 50px 0;
+}
+.books-info{
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  color:#555355;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.book-info .rating{
+  text-align: left;
+}
+
+.info-text{
+  margin-left: 30px;
+}
+.review{
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+}
+
+.review input{
+  margin-bottom: 10px;
+  width:100%;
+  }
+.review-title{
+  font-size: 1.8rem;
+  border-bottom: 1px solid #eee;
+  color:#0d2a4d;
+  padding-bottom:10px;
+}
+.review-content{
+  font-size: 1.2rem;
+}
+.review-text{
+  height:265px;
+  overflow: auto;
+  /*border: 1px solid #eee;*/
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom:10px;
+}
+.review textarea{
+  width:100%;
+  border-radius: 5px;
+  padding:20px;
+  box-sizing: border-box;
+}
+.review button{
+  background: #64b9c8;
+  color: #fff;
+  width:100%;
+  height: 40px;
+  margin-bottom: 20px;
+}
+.review .edit-btn,.review .delete-btn{
+  width:49.5%;
+}
+
+.book-phrase input{
+  margin-bottom: 10px;
+  width:92%;
+}
+.book-phrase button{
+  background: #64b9c8;
+  color: #fff;
+  height:38px;
+  width:40px;
+  position: relative;
+  top:3px;
+}
+.phrase-area{
+  padding:20px;
+  width:100%;
+  height: 150px;
+  overflow:auto;
+  margin: 0 auto;
+  background: #eee;
+}
+.phrase-area li{
+  border-bottom: 1px dotted #686a67;
+  display: block;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  color: #535455;
+  font-weight: 400;
+}
   footer{
     position: fixed;
     bottom: 0;
@@ -537,6 +641,214 @@ select{
     color:#eee;
     margin: 0 auto;
   }
+@media screen and (max-width: 500px){
+  .wrap-1200{
+    max-width:100%;
+    /*min-width:300px;*/
+  }
+  .logo img{
+  width:100px;
+  margin-top: 12px;
+  margin-left: 10px;
+  }
+  .log-in li{
+    font-size: 1rem;
+    /*margin-right: 0;*/
+  }
+  .log-in .nickname{
+    display: none;
+  }
+  input{
+    padding-left: 0.2rem;
+  }
+  .utility{
+    height:60px;
+    padding:8px;
+  }
+  .utility-inner{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    padding:3px 25px;
+    /*float:left;*/
+  }
+  .utility-inner:after{
+    content: '';
+    display: block;
+    clear:both;
+  }
+  .listbook-search input{
+    width:70%;
+  }
+  .total-msg{
+    font-size: 1rem;
+    display: none;
+  }
+  .view-btn{
+    margin:8px 2px;
+  }
+  .btn-wrap{
+    margin-right: 20px;
+    display: flex;
+    flex-flow:row nowrap;
+  }
+  .signin-box,.signup-box{
+    padding: 3px 10px;
+    width:100%;
+  }
+  .signup-header{
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+  }
+  .signin-box input{
+    width:100%;
+    margin-left:0;
+  }
+  .signup-box input{
+    width:100%;
+    margin-bottom: 10px;
+  }
+  .signup-box label{
+    margin-left: 0;
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+    display: none;
+  }
+  .booksearch-inner{
+    width:100%;
+  }
+  .booksearch-title{
+    font-size: 1.1rem;
+  }
+  /*책검색 뷰*/
+  .book-search{
+    width:100%;
+    padding:30px 10px;
+  }
+  .search-input{
+    width:100%;
+    margin-bottom: 10px;
+  }
+  .resultsBookList{
+    display: block;
+  }
+  .results{
+    padding:0;
+  }
+  .resultsBookList{
+
+    padding:0px;
+  }
+  .results img{
+    width:100%;
+    height:auto;
+    width:82px;
+    height:120px;
+  }
+  .resultsBookListP h3{
+    margin:0;
+    font-size: 0.7rem;
+    display: none;
+  }
+  .resultsBookListP p{
+    margin:0;
+    display: none;
+  }
+  /*.picked-result{
+    position:absolute;
+    right:200px;
+    background: red;
+  }*/
+
+  /*갤러리뷰*/
+  .my-bookshelf{
+    /*float:left;*/
+    width:100%;
+    margin-top: 10px;
+  }
+  .booklist1 {
+    margin:20px 3px;
+    width: 145px;
+    height:296px;
+  }
+  .img-box{
+    padding:5px 20px 0;
+  }
+  .booklist-img{
+    /*width:100%;*/
+  }
+  .book-coverlist{
+    /*width:50%;*/
+  }
+  .title{
+    margin:0;
+  }
+  .author{
+    margin:0;
+  }
+  /*.book-wrap{
+    width:100%;
+  }*/
+  /*리스트뷰*/
+  .book-list{
+    margin:0;
+  }
+  .bookList{
+    display: block;
+    width:100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-left:none;
+    margin: 10px 0 ;
+  }
+  .bookListR{
+    width:100%;
+    text-align: center;
+    padding: 5px;
+  }
+  .bookListL{
+    width:100%;
+    padding:0;
+  }
+  .bookTitle{
+    margin:0;
+  }
+  .bookAuthors{
+    margin:0;
+  }
+  .bookReview{
+    margin: 5px 0;
+  }
+  /*북디테일뷰*/
+  .selected_area{
+    padding:10px 5px;
+  }
+  .books-info{
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+  .info-text{
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+  .rating span{
+    font-size: 1.5rem;
+  }
+  .book-phrase input{
+    margin-bottom: 10px;
+    width:85%;
+  }
+  .book-phrase button{
+    width:12%;
+    /*heigth:38px;*/
+    font-size: 0.8rem;
+    margin-left: -8px;
+  }
+
+
+}
 
 
 
