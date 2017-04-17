@@ -27,8 +27,9 @@ export default {
         return {
             search:'',
             posts: [],
+            id: '',
             msg: "책을 저장 합니다.",
-            boxMsg: "저장"
+            boxMsg: "저장",
         }
     },
     filters: {
@@ -44,11 +45,8 @@ export default {
         bookSearch(){
             var _this = this;
             var search = this.search;
-            // var search = document.querySelector('.added__book--input').value
-            // var results= document.querySelector('.results');
-            // document.querySelector('.results').innerHTML = "";
-            // console.log(search);
-            
+            var id = this.id;
+            console.log(id)
             $.ajax({
                 url: "https://soobook.devlim.net/api/book/search/?keyword=" + search,
                 dataType: "json",
@@ -57,10 +55,14 @@ export default {
                     console.log(data);
                     _this.search = '';
                     _this.posts = data.results;
+                    // _this.id = data.results[i].id;
+                    for (var i=0; i<data.results.length[i]; i++) {
+                        _this.id = data.results[i].id;
+                    }
                 },
             });
         },
-        addBook() {
+        addBook(id) {
             var token = 'Token ' + getCookie('SoobookToken');
             // localStorage.getItem("key");
             $.ajax({
@@ -69,7 +71,11 @@ export default {
                 dataType: "json",
                 headers: {
                   Authorization: token
+                },
+                body: {
+                    book_id: id,
                 }
+                
             })
             .done(function(response) {
                 console.log(response)

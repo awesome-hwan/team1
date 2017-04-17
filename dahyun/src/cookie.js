@@ -19,4 +19,3 @@ function getCookie(c_name) {
 		}
 	}
 }
-
