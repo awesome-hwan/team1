@@ -85,19 +85,50 @@ export default {
     addBooks(){
       var PickedBook = document.querySelector('.picked-result');
       var resultsBook = PickedBook.querySelectorAll('.resultsBookList');
+      var id = this.id;
+      // var book_id = this.book_id
       console.log('resultsBook:', resultsBook);
-      for (var i = 0; i <= resultsBook.length; i++) {
-        console.log(resultsBook[i].id);
+      for (var i = 0; i < resultsBook.length; i++) {
+        console.log('resultsBook[i].id:', resultsBook[i].id);
         var book_id = resultsBook[i].id;
-        console.log('book_id:',book_id);
+        // console.log('book_id:',book_id);
+        console.log('this:',this);
         this.book_id = book_id;
       };
-      // $.ajax({
-      //   url: "https://soobook.devlim.net/api/book/mybook/",
-      //   dataType: "json",
-      //   type: "POST",
-      //
-      // })
+
+      var token = 'Token ' + getCookie('SoobookToken');
+
+      console.log('book_id:',this.book_id);
+      $.ajax({
+        url: "https://soobook.devlim.net/api/book/mybook/",
+        dataType: "	json",
+        type: "POST",
+        data: {
+          book_id: this.book_id
+        },
+        headers: {
+          Authorization: token,
+        },
+        success: function(data) {
+          console.log('성공 :', data);
+        },
+        error: function(error){
+          console.error('실패..:', error);
+          console.log('data:',data);
+        }
+      })
+      function getCookie(c_name) {
+        var i,x,y,ARRcookies=document.cookie.split(";");
+        for (i=0;i<ARRcookies.length;i++) {
+          x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+          y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+          x=x.replace(/^\s+|\s+$/g,"");
+
+          if (x==c_name) {
+            return unescape(y);
+          }
+        }
+      }
     },
     allowDrop(ev) {
       ev.preventDefault();
