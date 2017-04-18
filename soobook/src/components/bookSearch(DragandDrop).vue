@@ -8,7 +8,7 @@
         </div>
         <div class="searchResults">
           <div class="results">
-              <div class="resultsBookList" v-for="post in posts" :id="post.id" @click="movingBook">
+              <div class="resultsBookList" v-for="post in posts" draggable="true"  @dragstart="drag($event, post.id)" :id="post.id">
                 <img :src="post.cover_thumbnail" :alt="post.title">
                 <div class="resultsBookListP">
                   <h3 class="resultsTitle">{{post.title | cropTitle}}</h3>
@@ -18,10 +18,11 @@
             <!--App.vue에 있는  results에서 padding, height 값 지움. -->
           </div>
           <div id="hiddenMenu" class="hiddenArea">
+            <!-- style="right: -84%;"  -->
             <button type="button" class="hiddenMenuBar" @click="toggleMenu">선택된 책 목록</button>
             <button type="button" class="hiddenMenuButton" @click="lookMenu"><i class="fa fa-angle-double-left fa-2x" aria-hidden="true"></i></button>
             <div class="resultsRight">
-              <div class="picked-result">
+              <div class="picked-result" id="div1" @drop="drop($event)" @dragover="allowDrop($event)">
                 <!--App.vue에 있는  picked-result값 다 지움(이 파일 밑에서  설정) -->
 
                 <!-- <router-link to="/mybook"> -->
@@ -129,53 +130,22 @@ export default {
         }
       }
     },
-    movingBook(e){
-      console.log(e.target.parentNode);
-      var targetbook, pickArea, clonebook;
-      targetbook = e.target.parentNode;
-      // console.log(targetbook.parentNode.getAttribute('class'));
-      pickArea = document.querySelector('.picked-result');
-      clonebook = targetbook.cloneNode(true);
-      // clonebook.setAttribute('onclick','removeBook');
-      clonebook.insertAdjacentHTML('beforeend','<button onclick="removeBook">안녕</button>');
-      console.log(clonebook);
-      pickArea.appendChild(clonebook);
+    allowDrop(ev) {
+      ev.preventDefault();
     },
-    // removeBook(){
-    //   console.log("왜!!!!");
-    // },
-
-    // movingBook(e){
-    //   console.log(e.target.parentNode);
-    //   var targetbook, pickArea, clonebook;
-    //   targetbook = e.target.parentNode;
-    //   // console.log(targetbook.parentNode.getAttribute('class'));
-    //   pickArea = document.querySelector('.picked-result');
-    //   clonebook = targetbook.cloneNode(true);
-    //   if(targetbook.parentNode.getAttribute('class') === "results"){
-    //     pickArea.appendChild(clonebook);
-    //   }else{
-    //     targetbook.parentNode.removeChild(targetbook);
-    //   }
-    // },
-
-    // allowDrop(ev) {
-    //   ev.preventDefault();
-    // },
-    // drag(ev, id) {
-    //   ev.dataTransfer.setData("drag_target", id);
-    // },
-    // drop(ev) {
-      // ev.preventDefault();
-      // var data = ev.dataTransfer.getData("drag_target");
+    drag(ev, id) {
+      ev.dataTransfer.setData("drag_target", id);
+    },
+    drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("drag_target");
       // console.log('data: ', data);
       // console.log('ev.target:',ev.target);
-      // var clonebook = document.getElementById(data).cloneNode(true);
+      var clonebook = document.getElementById(data).cloneNode(true);
       // console.log("clonebook:",clonebook);
-      // ev.target.appendChild(clonebook);
+      ev.target.appendChild(clonebook);
       // ev.target.appendChild(document.getElementById(data));
-    // },
-
+    },
     lookMenu(){
       var toggleMenu, togglebtn;
       toggleMenu = document.querySelector('#hiddenMenu');
@@ -247,7 +217,6 @@ export default {
   /*box-shadow:0 1px 1px;*/
   border-radius: 5px;
   text-align: center;
-  cursor: pointer;
 }
 .picked-result{
   min-height: 100vh;
