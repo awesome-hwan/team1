@@ -55,6 +55,23 @@ children:[
     {path:'listview', component:listView},
   ]
 },
+// {path: '/mybook_gall',
+// components:{
+//   default: galleryView,
+//   mybook: myBook
+//   header: loginHeader,
+//   footer: Footer
+// }
+// },
+// {path: '/mybook_list',
+// components:{
+//   default: myBook,
+//   listview: listView,
+//   header: loginHeader,
+//   footer: Footer
+// }
+// },
+
 
 
 {path:'/booksearch', components:{
